@@ -1,0 +1,8 @@
+#secret
+.env
+
+#nodemodules of server and client
+/node_modules
+
+
+
