@@ -18,11 +18,14 @@ const CreateProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
+  const baseURL = process.env.REACT_APP_API;
 
   //get all categories
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(
+        `${baseURL}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -49,7 +52,7 @@ const CreateProduct = () => {
       productData.append("category", category);
       productData.append("shipping", shipping);
       const { data } = axios.post(
-        "/api/v1/product/create-product",
+        `${baseURL}/api/v1/product/create-product`,
         productData
       );
       if (data?.success) {

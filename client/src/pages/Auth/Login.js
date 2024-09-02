@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,12 +13,13 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const baseURL = process.env.REACT_APP_API;
 
   // form function
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/login", {
+      const res = await axios.post(`${baseURL}/api/v1/auth/login`, {
         email,
         password,
       });

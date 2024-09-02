@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
   const navigate = useNavigate();
   const [values] = useSearch();
+  const baseURL = process.env.REACT_APP_API;
 
   return (
     <Layout>
@@ -22,7 +23,7 @@ const Search = () => {
             {values?.results.map((p) => (
               <div className="card m-2" style={{ width: "17rem" }} key={p._id}>
                 <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
+                  src={`${baseURL}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top "
                   height={"250px"}
                   alt={p.name}
