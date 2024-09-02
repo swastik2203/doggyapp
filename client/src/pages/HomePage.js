@@ -62,8 +62,8 @@ const HomePage = () => {
   useEffect(() => {
     if (page === 1) return;
     loadMore();
-  }, [page]);
-  
+  });
+
   //load more
   const loadMore = async () => {
     try {
@@ -89,11 +89,11 @@ const HomePage = () => {
   };
   useEffect(() => {
     if (!checked.length || !radio.length) getAllProducts();
-  }, [checked.length, radio.length]);
+  });
 
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
-  }, [checked, radio]);
+  });
 
   //get filterd product
   const filterProduct = async () => {
@@ -116,9 +116,9 @@ const HomePage = () => {
           className="banner-img"
           alt="bannerimage"
           width={"100%"}
-      />
+        />
       </div>
-      
+
       {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
@@ -157,7 +157,7 @@ const HomePage = () => {
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <div className="card m-2"  key={p._id}>
+              <div className="card m-2" key={p._id}>
                 <img
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
